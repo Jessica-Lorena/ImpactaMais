@@ -31,7 +31,7 @@ public class Usuario {
 	private String email;
 	
 	@NotNull
-	@Size(min = 6, max = 20)
+	@Size(min = 6, max = 500)
 	private String senha;
 	
 	@OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
