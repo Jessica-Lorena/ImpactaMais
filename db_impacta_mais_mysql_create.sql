@@ -3,8 +3,10 @@ CREATE TABLE `tb_postagem` (
 	`titulo` varchar(120) NOT NULL DEFAULT 'not  null',
 	`text_box` varchar(2200) NOT NULL,
 	`data_post` DATETIME NOT NULL DEFAULT 'not  null',
-	`localizacao` varchar(120) NOT NULL,
+	`cidade` varchar(120) NOT NULL,
 	`sangue` varchar(30) NOT NULL DEFAULT 'not null',
+	`imagem` varchar(8000) NOT NULL,
+	`nome_hospital` varchar(120) NOT NULL DEFAULT 'not null',
 	`tema_id` bigint NOT NULL DEFAULT 'not null',
 	`usuario_id` bigint NOT NULL DEFAULT 'not  null',
 	PRIMARY KEY (`id`)
@@ -23,6 +25,16 @@ CREATE TABLE `tb_usuario` (
 	`nome` varchar(60) NOT NULL DEFAULT 'not null',
 	`email` varchar(80) NOT NULL DEFAULT 'not null',
 	`senha` varchar(20) NOT NULL DEFAULT 'not null',
+	PRIMARY KEY (`id`)
+);
+
+CREATE TABLE `tb_hospital` (
+	`id` bigint NOT NULL AUTO_INCREMENT,
+	`nome` varchar(120) NOT NULL DEFAULT 'not null',
+	`cidade` varchar(120) NOT NULL DEFAULT 'not null',
+	`endereco` varchar(120) NOT NULL DEFAULT 'not null',
+	`link` varchar(8000) NOT NULL DEFAULT 'not null',
+	`aitvo` BOOLEAN NOT NULL DEFAULT 'not null',
 	PRIMARY KEY (`id`)
 );
 

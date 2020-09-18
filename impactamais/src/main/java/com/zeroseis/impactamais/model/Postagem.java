@@ -35,12 +35,20 @@ public class Postagem {
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date data_post = new java.sql.Date(System.currentTimeMillis());
 	
+	@NotNull
 	@Size(min = 1, max = 120)
-	private String localizacao;
+	private String cidade;
 	
 	@NotNull
 	@Size(min = 2, max = 30)
 	private String sangue;
+	
+	@NotNull
+	@Size(min = 2, max = 120)
+	private String nome_hospital;
+	
+	@Size(min = 0, max = 8000)
+	private String imagem;
 	
 	@ManyToOne
 	@JsonIgnoreProperties("postagem")
@@ -54,7 +62,7 @@ public class Postagem {
 		return id;
 	}
 
-	public void setId_post(long id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 
@@ -82,12 +90,12 @@ public class Postagem {
 		this.data_post = data_post;
 	}
 
-	public String getLocalizacao() {
-		return localizacao;
+	public String getCidade() {
+		return cidade;
 	}
 
-	public void setLocalizacao(String localizacao) {
-		this.localizacao = localizacao;
+	public void setCidade(String cidade) {
+		this.cidade = cidade;
 	}
 
 	public String getSangue() {
@@ -96,6 +104,22 @@ public class Postagem {
 
 	public void setSangue(String sangue) {
 		this.sangue = sangue;
+	}
+
+	public String getNome_hospital() {
+		return nome_hospital;
+	}
+
+	public void setNome_hospital(String nome_hospital) {
+		this.nome_hospital = nome_hospital;
+	}
+
+	public String getImagem() {
+		return imagem;
+	}
+
+	public void setImagem(String imagem) {
+		this.imagem = imagem;
 	}
 
 	public Tema getTema() {
@@ -112,10 +136,6 @@ public class Postagem {
 
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
-	}
-
-	public void setId(long id) {
-		this.id = id;
 	}
 
 }

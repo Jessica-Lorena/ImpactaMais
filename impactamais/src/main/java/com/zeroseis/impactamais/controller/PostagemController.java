@@ -38,6 +38,22 @@ public class PostagemController {
 		return repository.findById(id).map(resp -> ResponseEntity.ok(resp)).orElse(ResponseEntity.notFound().build());
 	}
 	
+	@GetMapping("/cidade/{cidade}") //findAllByCidade
+	public ResponseEntity<Postagem> getAllByCidade (@PathVariable String cidade)
+	{
+		return (repository.findAllByCidadeContainingIgnoreCase(cidade))
+				.map(resp -> ResponseEntity.ok(resp))
+				.orElse(ResponseEntity.notFound().build());
+	}
+	
+	@GetMapping("/sangue/{sangue}") //findAllBySangue (tipo sanguineo)
+	public ResponseEntity<Postagem> getAllBySangue (@PathVariable String sangue)
+	{
+		return (repository.findAllBySangueContainingIgnoreCase(sangue))
+				.map(resp -> ResponseEntity.ok(resp))
+				.orElse(ResponseEntity.notFound().build());
+	}
+	
 	@PostMapping
 	public ResponseEntity <Postagem> post (@RequestBody Postagem titulo)
 	{
