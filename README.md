@@ -49,5 +49,5 @@ Versionamento:
 
 <a id="front"></a>
 
-## :computer: Clique [aqui](https://github.com/Jessica-Lorena/ImpactaMaisFront){:target"_blank")} para ver o Front-End!
+## :computer: Clique <a href="https://github.com/Jessica-Lorena/ImpactaMaisFront" target="_blank">aqui</a> para ver o Front-End!
 
