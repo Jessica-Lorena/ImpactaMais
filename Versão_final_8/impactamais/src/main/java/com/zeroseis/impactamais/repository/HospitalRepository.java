@@ -11,8 +11,8 @@ import com.zeroseis.impactamais.model.Hospital;
 @Repository
 public interface HospitalRepository extends JpaRepository<Hospital, Long>{
 	
-	public List<Hospital> findByNomeContainingIgnoreCase(String nome);
+	public List<Hospital> findAllByNomeContainingIgnoreCase(String nome);
 	
-	public Optional<Hospital> findAllByCidadeContainingIgnoreCase(String cidade);
+	public List<Hospital> findAllByCidadeContainingIgnoreCase(String cidade);
 	
 }

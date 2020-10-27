@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.zeroseis.impactamais.model.Hospital;
+import com.zeroseis.impactamais.model.Postagem;
 import com.zeroseis.impactamais.repository.HospitalRepository;
 
 
@@ -40,11 +41,21 @@ public class HospitalController {
 	}
 	
 	@GetMapping("/cidade/{cidade}")
-	public ResponseEntity<Hospital> GetByCidade(@PathVariable String cidade){
-		return repository.findAllByCidadeContainingIgnoreCase(cidade)
-				.map(resp -> ResponseEntity.ok(resp))
-				.orElse(ResponseEntity.notFound().build());		
-	}	
+	public ResponseEntity<List<Hospital>> GetByCidade(@PathVariable String cidade){
+		return ResponseEntity.ok(repository.findAllByCidadeContainingIgnoreCase(cidade));
+	}
+	
+	@GetMapping("/nome/{nome}")
+	public ResponseEntity<List<Hospital>> GetByNome(@PathVariable String nome){
+		return ResponseEntity.ok(repository.findAllByNomeContainingIgnoreCase(nome));
+	}
+	
+//	@GetMapping("/cidade/{cidade}")
+//	public ResponseEntity<Hospital> GetByCidade(@PathVariable String cidade){
+//		return repository.findAllByCidadeContainingIgnoreCase(cidade)
+//				.map(resp -> ResponseEntity.ok(resp))
+//				.orElse(ResponseEntity.notFound().build());		
+//	}	
 
 	@PostMapping
 	public ResponseEntity<Hospital> post(@RequestBody Hospital nome){
